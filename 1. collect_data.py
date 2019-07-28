@@ -17,16 +17,15 @@ nk = [0,0,0,0,0,0,0,0,1]
 
 starting_value = 1
 
-while True:
-    file_name = 'training_data-{}.npy'.format(starting_value)
 
-    if os.path.isfile(file_name):
-        print('File exists, moving along',starting_value)
-        starting_value += 1
-    else:
-        print('File does not exist, starting fresh!',starting_value)
-        
-        break
+file_name = 'training_data-{}.npy'.format(starting_value)
+
+if os.path.isfile(file_name):
+	print('File exists, moving along',starting_value)
+	starting_value += 1
+else:
+	print(ValueError)
+	print('File does not exist, starting fresh!',starting_value)
 
 
 def keys_to_output(keys):
@@ -98,7 +97,7 @@ def main(file_name, starting_value):
                     print('SAVED')
                     training_data = []
                     starting_value += 1
-                    file_name = 'X:/pygta5/phase7-larger-color/training_data-{}.npy'.format(starting_value)
+                    file_name = 'training_data-{}.npy'.format(starting_value)
 
                     
         keys = key_check()

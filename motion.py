@@ -32,12 +32,13 @@ VERSION
 
 
 import cv2
+#from test_model import main
 
 def delta_images(t0, t1, t2):
     d1 = cv2.absdiff(t2, t0)
     return d1
 
-def motion_detection(t_minus, t_now, t_plus):
+def motion_detection(t_minus, t_now, t_plus, screen):
     delta_view = delta_images(t_minus, t_now, t_plus)
     retval, delta_view = cv2.threshold(delta_view, 16, 255, 3)
     cv2.normalize(delta_view, delta_view, 0, 255, cv2.NORM_MINMAX)

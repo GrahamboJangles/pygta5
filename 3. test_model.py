@@ -114,7 +114,7 @@ def no_keys():
 
 
 model = googlenet(WIDTH, HEIGHT, 3, LR, output=9)
-MODEL_NAME = ''
+MODEL_NAME = 'model1'
 model.load(MODEL_NAME)
 
 print('We have loaded a previous model!!!!')
@@ -145,7 +145,7 @@ def main():
             last_time = time.time()
             screen = cv2.resize(screen, (WIDTH,HEIGHT))
 
-            delta_count_last = motion_detection(t_minus, t_now, t_plus)
+            delta_count_last = motion_detection(t_minus, t_now, t_plus, screen)
 
             t_minus = t_now
             t_now = t_plus
@@ -187,7 +187,7 @@ def main():
                 no_keys()
                 choice_picked = 'nokeys'
 
-            motion_log.append(delta_count)
+            motion_log.append(delta_count_last)
             motion_avg = round(mean(motion_log),3)
             print('loop took {} seconds. Motion: {}. Choice: {}'.format( round(time.time()-last_time, 3) , motion_avg, choice_picked))
             

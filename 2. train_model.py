@@ -10,18 +10,17 @@ from models import inception_v3 as googlenet
 from random import shuffle
 
 
-FILE_I_END = 1860
+FILE_I_END = 1
 
 WIDTH = 480
 HEIGHT = 270
 LR = 1e-3
 EPOCHS = 30
 
-MODEL_NAME = ''
+MODEL_NAME = 'model1'
 PREV_MODEL = ''
 
-LOAD_MODEL = True
-
+LOAD_MODEL = False
 wl = 0
 sl = 0
 al = 0
@@ -59,8 +58,8 @@ for e in range(EPOCHS):
     shuffle(data_order)
     for count,i in enumerate(data_order):
         
-        try:
-            file_name = 'J:/phase10-random-padded/training_data-{}.npy'.format(i)
+        try: 
+            file_name = 'A:/Coding_and_Scripting/Miniconda3/_PROJECTS/pygta5-master/training_data-{}.npy'.format(i)
             # full file info
             train_data = np.load(file_name)
             print('training_data-{}.npy'.format(i),len(train_data))
